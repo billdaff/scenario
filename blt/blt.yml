@@ -5,7 +5,7 @@ project:
   machine_name: scenario
   # Used for enforcing correct git commit msg syntax.
   prefix: PSO
-  human_name: 'BLTed 10'
+  human_name: 'PSO Scenario'
   profile:
     name: lightning
   # This will be used as the local uri for all developers.

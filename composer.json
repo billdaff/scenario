@@ -1,74 +1,80 @@
 {
     "name": "acquia-pso/scenario",
-    "type": "project",
-    "description": "Project template for Drupal 8 sites built with BLT.",
-    "license": "GPL-2.0-only",
+    "description": "A repository for Acquia Professional Services code reviews.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Acquia Professional Services",
+            "homepage": "https://www.acquia.com",
+            "role": "Maintainer"
+        }
+    ],
     "require": {
-        "acquia/blt": "^11",
-        "acquia/drupal-spec-tool": "*",
-        "acquia/lightning": "^4.0.0",
-        "acquia/memcache-settings": "*",
-        "drupal-composer/drupal-scaffold": "^2.5.4",
-        "drupal/acquia_connector": "^2",
-        "drupal/acquia_purge": "^1.0-beta3",
-        "drupal/cog": "^1.0.0",
-        "drupal/config_split": "^1.0.0",
-        "drupal/core": "^8.9",
-        "drupal/devel": "^2.0.0",
-        "drupal/qa_accounts": "^1.0.0-alpha1",
-        "drupal/seckit": "^1.0.0-alpha2",
-        "drupal/shield": "^1.2.0",
-        "php": ">=7.3"
+        "acquia/blt": "^12",
+        "acquia/blt-behat": "dev-master",
+        "acquia/blt-phpcs": "dev-master",
+        "acquia/lightning": "^5",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/config_ignore": "^2.2",
+        "drupal/config_split": "^1.5",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-recommended": "^9",
+        "drupal/mysql56": "^1.0@beta",
+        "drupal/shield": "^1.4"
     },
     "require-dev": {
-        "acquia/blt-require-dev": "11.x-dev",
-        "behat/mink-selenium2-driver": "dev-master#a38512485e905738321f793b3acd3e7411a85101 as 1.3.x-dev",
-        "geerlingguy/drupal-vm": "~5.0"
+        "geerlingguy/drupal-vm": "^6.0"
     },
-    "config": {
-        "platform": {
-            "php": "7.3"
-        },
+        "config": {
         "sort-packages": true
     },
     "extra": {
-        "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
-            "initial": {
-                "sites/default/default.services.yml": "sites/default/services.yml",
-                "sites/default/default.settings.php": "sites/default/settings.php"
-            }
+            "locations": {
+                "web-root": "docroot/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/default.services.yml": {
+                    "mode": "replace",
+                    "path": "docroot/core/assets/scaffold/files/default.services.yml",
+                    "overwrite": false
+                },
+                "[web-root]/sites/default/default.settings.php": {
+                    "mode": "replace",
+                    "path": "docroot/core/assets/scaffold/files/default.settings.php",
+                    "overwrite": false
+                }
+            },
+            "gitignore": true
         },
         "enable-patching": true,
         "installer-paths": {
             "docroot/core": [
                 "type:drupal-core"
             ],
-            "docroot/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "docroot/modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "docroot/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "docroot/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "docroot/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "docroot/themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ],
             "docroot/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "drush/Commands/{$name}": [
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
+            ],
+            "docroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "docroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
             ]
         },
         "installer-types": [
@@ -78,17 +84,7 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches": []
-    },
-    "autoload": {
-        "psr-4": {
-            "Example\\": "blt/src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Drupal\\Tests\\PHPUnit\\": "tests/phpunit/src/"
-        }
+        "patches": {}
     },
     "repositories": {
         "drupal": {
@@ -101,16 +97,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-create-project-cmd": [
-            "blt internal:create-project:init-repo"
-        ],
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
-        "nuke": [
-            "rm -rf vendor composer.lock docroot/core docroot/modules/contrib docroot/profiles/contrib docroot/themes/contrib",
-            "@composer clearcache --ansi",
-            "@composer install --ansi"
-        ]
-    }
+    "prefer-stable": true
 }

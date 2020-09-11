@@ -8,7 +8,7 @@
 use Acquia\Blt\Robo\Common\EnvironmentDetector;
 use Drupal\Component\Assertion\Handle;
 
-$db_name = '${drupal.db.database}';
+$db_name = 'drupal';
 
 /**
  * Database configuration.
@@ -19,10 +19,10 @@ $databases = [
     'default' =>
     [
       'database' => $db_name,
-      'username' => '${drupal.db.username}',
-      'password' => '${drupal.db.password}',
-      'host' => '${drupal.db.host}',
-      'port' => '${drupal.db.port}',
+      'username' => 'drupal',
+      'password' => 'drupal',
+      'host' => 'localhost',
+      'port' => '3306',
       'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
       'driver' => 'mysql',
       'prefix' => '',
