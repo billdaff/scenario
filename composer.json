@@ -10,9 +10,10 @@
         }
     ],
     "require": {
+        "php": ">=7.4",
         "acquia/blt": "^12",
-        "acquia/blt-behat": "dev-master",
-        "acquia/blt-phpcs": "dev-master",
+        "acquia/blt-behat": "^1",
+        "acquia/blt-phpcs": "^1",
         "acquia/lightning": "^5",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
