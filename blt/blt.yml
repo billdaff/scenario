@@ -7,27 +7,8 @@ project:
   prefix: PSO
   human_name: 'PSO Scenario'
   profile:
-    name: lightning
+    name: acquia_cms
   # This will be used as the local uri for all developers.
   local:
     protocol: http
     hostname: 'local.${project.machine_name}.com'
-# Configuration settings for new git repository.
-git:
-  default_branch: master
-  remotes: {  }
-deploy:
-  # When manually deploying a tag, also tag the source repository.
-  tag_source: true
-drush:
-  # You can set custom project aliases in drush/sites/*.site.yml.
-  aliases:
-    # The remote environment from which the database will be pulled.
-    remote: '${project.machine_name}.test'
-    # The local environment against which all local drush commands are run.
-    local: self
-    # The drush alias against which all ci commands are run.
-    ci: self
-    # The default drush alias to be used when no environment is specified.
-  default_alias: '${drush.aliases.local}'
-
