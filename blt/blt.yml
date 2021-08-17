@@ -7,7 +7,7 @@ project:
   prefix: PSO
   human_name: 'PSO Scenario'
   profile:
-    name: acquia_cms
+    name: minimal
   # This will be used as the local uri for all developers.
   local:
     protocol: http
