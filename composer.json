@@ -25,7 +25,15 @@
     },
     "require-dev": {},
         "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "acquia/blt": true,
+            "acquia/blt-phpcs": true,
+            "drupal/core-composer-scaffold": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
