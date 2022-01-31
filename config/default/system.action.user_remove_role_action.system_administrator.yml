@@ -1,0 +1,14 @@
+uuid: c8e6beae-8c87-48e2-b17a-0f604e4b805c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.system_administrator
+  module:
+    - user
+id: user_remove_role_action.system_administrator
+label: 'Remove the System Administrator role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: system_administrator

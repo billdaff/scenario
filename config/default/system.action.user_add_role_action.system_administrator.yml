@@ -1,0 +1,14 @@
+uuid: bd5363c7-e977-4cad-af6a-48f25629ed45
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.system_administrator
+  module:
+    - user
+id: user_add_role_action.system_administrator
+label: 'Add the System Administrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: system_administrator

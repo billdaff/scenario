@@ -1,0 +1,7 @@
+enable_ecommerce: 0
+elastic_path_api_key: ''
+elastic_path_secret_key: ''
+elastic_path_endpoint: ''
+':elastic_path_api_key': null
+':elastic_path_secret_key': null
+':elastic_path_endpoint': null
